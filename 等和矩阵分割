@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+    int x,y;
+    cin>>x>>y;
+   vector<vector<int>> arr(x,vector<int>(y));
+   long long total=0;
+   for(int i=0;i<x;i++){
+    for(int j=0;j<y;j++){
+        cin>>arr[i][j];
+        total+=arr[i][j];
+    }
+   }
+    vector<long long> grid(y+1,0);
+        for(int j=0;j<y;j++){
+            for(int i=0;i<x;i++){
+                grid[j+1]+=arr[i][j];
+            }
+            grid[j+1]+=grid[j];
+        }
+for(int m=1;m<y;m++){
+    if(grid[m]*2==total){cout<<"true";return 0;}
+}
+vector<long> Grid(x+1,0);
+        for(int i=0;i<x;i++){
+            for(int j=0;j<y;j++){
+                Grid[i+1]+=arr[i][j];
+            }
+            Grid[i+1]+=Grid[i];
+        }
+for(int m=1;m<x;m++){
+    if(Grid[m]*2==total){cout<<"true";return 0;}
+}
+cout<<"false";
+return 0;
+}
