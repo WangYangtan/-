@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    string a;
+    getline(cin,a);
+    int max=0,t=0,x=0;
+    int count[128]={0};
+    char X[128];
+    for(int i=0;i<a.size();i++){
+   char c=a[i];
+   if(count[c]==0){X[x]=c;x++;count[c]++;t++;if(t>max)max=t;}
+   else{
+for(int j=0;j<x;j++){
+    char C=X[j];
+    count[C]=0;
+}
+    i=i-t;
+t=0;x=0;}
+   }
+   cout<<max;
+}
