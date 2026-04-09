@@ -1,0 +1,26 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<sstream>
+using namespace std;
+int main(){
+    vector<int> height;
+    string t;
+    int x;
+    getline(cin,t);
+stringstream tn(t);
+while(tn>>x){
+    height.push_back(x);
+}
+   int begin=0,end=height.size()-1;
+int area=0;
+int maxarea=0;
+while(begin<end){
+area=(end-begin)*min(height[begin],height[end]);
+maxarea=max(area,maxarea);
+if(height[begin]<height[end])begin++;
+else end--;
+}
+cout<<maxarea;
+return 0;
+}
