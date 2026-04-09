@@ -1,0 +1,19 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    int a;
+    int rev=0;
+    cin>>a;
+    while(a!=0){
+        if(rev<INT_MIN/10||rev>INT_MAX/10){
+            cout<<0;
+            return 0;
+        }
+        int t=a%10;
+        a/=10;
+        rev=rev*10+t;
+    }
+    cout<<rev;
+return 0;
+}
